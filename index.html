@@ -1,0 +1,2814 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Starter Pakketten | Werkende AI in 4 weken — Plainsight</title>
+  <meta name="description" content="Geen strategiedeck. Geen pilotmoeras. Een werkende AI-toepassing op jouw data, in 4 weken. Vaste prijs, vast resultaat. Voor Belgische KMO's die voorbij de AI-hype willen." />
+  <meta property="og:title" content="AI Starter Pakketten — Werkende AI in 4 weken | Plainsight" />
+  <meta property="og:description" content="Geen strategiedeck. Geen pilotmoeras. Een werkende AI-toepassing op jouw data, in 4 weken." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.plainsight.pro/ai-starter" />
+  <link rel="icon" href="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/6858909e-8469-4a08-8f8e-fabd52124768/favicon.ico?format=100w" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&family=Titillium+Web:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #000075;
+      --orange: #D5693A;
+      --orange-hover: #c05a2e;
+      --orange-light: #e8956e;
+      --cream: #FCF8F3;
+      --white: #ffffff;
+      --navy-90: rgba(0, 0, 117, 0.90);
+      --navy-60: rgba(0, 0, 117, 0.60);
+      --navy-40: rgba(0, 0, 117, 0.40);
+      --navy-15: rgba(0, 0, 117, 0.15);
+      --navy-08: rgba(0, 0, 117, 0.08);
+      --navy-04: rgba(0, 0, 117, 0.04);
+      --orange-12: rgba(213, 105, 58, 0.12);
+      --orange-06: rgba(213, 105, 58, 0.06);
+      --heading: "Titillium Web", "Segoe UI", sans-serif;
+      --body: "Epilogue", "Segoe UI", sans-serif;
+      --container: 1140px;
+      --radius: 300px;
+      --radius-card: 14px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--navy);
+      background: var(--cream);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--orange); text-decoration: none; transition: color 0.25s var(--ease-out); }
+    a:hover { color: var(--orange-hover); }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+    /* ---------- Utility ---------- */
+    .eyebrow {
+      font-family: var(--heading);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--heading);
+      font-size: clamp(32px, 4.2vw, 52px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--navy-60);
+      max-width: 560px;
+    }
+
+    .section-head {
+      margin-bottom: 64px;
+    }
+    .section-head.center {
+      text-align: center;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-head.center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ---------- Section transitions (gradient fades between sections) ---------- */
+    .section-fade {
+      height: 80px;
+      position: relative;
+      pointer-events: none;
+    }
+    .section-fade.cream-to-white { background: linear-gradient(to bottom, var(--cream), var(--white)); }
+    .section-fade.white-to-cream { background: linear-gradient(to bottom, var(--white), var(--cream)); }
+    .section-fade.cream-to-navy { background: linear-gradient(to bottom, var(--cream), var(--navy)); }
+    .section-fade.navy-to-cream { background: linear-gradient(to bottom, var(--navy), var(--cream)); }
+    .section-fade.navy-to-white { background: linear-gradient(to bottom, var(--navy), var(--white)); }
+    .section-fade.white-to-navy { background: linear-gradient(to bottom, var(--white), var(--navy)); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      border: 0;
+      cursor: pointer;
+      transition: all 0.35s var(--ease-out);
+      text-decoration: none;
+      position: relative;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(213, 105, 58, 0.2);
+    }
+    .btn-primary:hover {
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(213, 105, 58, 0.35);
+      filter: brightness(1.05);
+    }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(213, 105, 58, 0.2); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy-15);
+      backdrop-filter: blur(4px);
+    }
+    .btn-ghost:hover {
+      border-color: var(--navy-40);
+      color: var(--navy);
+      background: rgba(255,255,255,0.6);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,0,117,0.06);
+    }
+    .btn-white { background: #fff; color: var(--navy); }
+    .btn-white:hover { background: var(--cream); color: var(--navy); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+
+    /* ---------- Notice ---------- */
+    .notice {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 11px 20px;
+      letter-spacing: 0.02em;
+    }
+    .notice strong { color: var(--orange); font-weight: 700; }
+    .notice a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--navy-08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+    .logo-link img {
+      height: 28px;
+      width: auto;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    nav a {
+      font-family: var(--heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    nav a:hover { color: var(--orange); }
+    nav .btn { padding: 10px 24px; font-size: 13px; }
+    @media (max-width: 860px) { nav { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 80px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .hero-title {
+      font-family: var(--heading);
+      font-size: clamp(40px, 5.4vw, 64px);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent {
+      background: linear-gradient(135deg, var(--orange) 20%, var(--orange-light) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--navy);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .hero-proof {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--navy-08);
+    }
+    .hero-proof-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-proof-num {
+      font-family: var(--heading);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-proof-label {
+      font-size: 13px;
+      color: var(--navy-40);
+      font-weight: 500;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      transform: perspective(800px) rotateY(-2deg);
+      transition: transform 0.6s var(--ease-out);
+    }
+    .hero-image:hover { transform: perspective(800px) rotateY(0deg); }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .hero-image:hover img { transform: scale(1.03); }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-card);
+      background: linear-gradient(to top, rgba(0,0,117,0.15) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 280px;
+    }
+    .hero-badge-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--orange-12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-badge-text {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--navy);
+    }
+    .hero-badge-text span { color: var(--navy-40); font-weight: 400; display: block; font-size: 12px; }
+
+    /* ---------- Logo strip ---------- */
+    .logos-section {
+      padding: 56px 0;
+      border-top: 1px solid var(--navy-08);
+    }
+    .logos-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--navy-40);
+      margin-bottom: 28px;
+    }
+    .logos-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .logos-row img {
+      height: 36px;
+      width: auto;
+      opacity: 0.45;
+      filter: grayscale(100%);
+      transition: all 0.4s var(--ease-out);
+    }
+    .logos-row img:hover { opacity: 0.85; filter: grayscale(0%); transform: scale(1.08); }
+    @media (max-width: 600px) { .logos-row { gap: 28px; } .logos-row img { height: 28px; } }
+
+    /* ---------- Sections ---------- */
+    section { padding: 100px 0; position: relative; overflow: hidden; }
+    section.alt { background: var(--white); }
+    section.dark { background: var(--navy); color: #fff; }
+    section.dark .section-title { color: #fff; }
+    section.dark .section-sub { color: rgba(255,255,255,0.65); }
+    section.dark a { color: var(--orange); }
+
+    /* ---------- Pain ---------- */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 800px) { .pain-grid { grid-template-columns: 1fr; } }
+
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--navy-08);
+      border-radius: var(--radius-card);
+      padding: 28px 28px 24px;
+      position: relative;
+      transition: all 0.4s var(--ease-out);
+    }
+    .pain-card:hover {
+      box-shadow: 0 16px 40px rgba(0,0,117,0.07);
+      border-color: transparent;
+      background: linear-gradient(var(--white), var(--white)) padding-box,
+                  linear-gradient(135deg, var(--navy-15), var(--orange-12)) border-box;
+      transform: translateY(-3px);
+    }
+    .pain-card .quote {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--navy);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .pain-card .quote::before {
+      content: "\201C";
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 0;
+      vertical-align: -0.25em;
+      margin-right: 2px;
+      font-style: normal;
+    }
+    .pain-card .source {
+      font-size: 13px;
+      color: var(--navy-40);
+      font-weight: 500;
+    }
+
+    /* ---------- Stats ---------- */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    @media (max-width: 700px) { .stats-row { grid-template-columns: 1fr; } }
+
+    .stat-item {
+      padding: 40px 32px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: 0; }
+    @media (max-width: 700px) { .stat-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); } .stat-item:last-child { border-bottom: 0; } }
+
+    .stat-num {
+      font-family: var(--heading);
+      font-size: 52px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Compare ---------- */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--navy-08);
+    }
+    @media (max-width: 800px) { .compare { grid-template-columns: 1fr; } }
+
+    .compare-col {
+      padding: 40px 36px;
+    }
+    .compare-col.them {
+      background: var(--navy-04);
+    }
+    .compare-col.us {
+      background: var(--white);
+      position: relative;
+    }
+    .compare-col.us::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    }
+    .compare-label {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--navy-40);
+      margin-bottom: 4px;
+    }
+    .compare-heading {
+      font-family: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--navy);
+    }
+    .compare-col.them .compare-heading { color: var(--navy-40); }
+
+    .compare-list {
+      list-style: none;
+    }
+    .compare-list li {
+      padding: 12px 0;
+      padding-left: 28px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.5;
+      border-bottom: 1px solid var(--navy-04);
+    }
+    .compare-list li:last-child { border-bottom: 0; }
+    .compare-col.them .compare-list li::before {
+      content: "\2715";
+      position: absolute; left: 0; top: 12px;
+      color: var(--navy-40);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .compare-col.us .compare-list li::before {
+      content: "\2713";
+      position: absolute; left: 0; top: 12px;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* ---------- For who ---------- */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .who-grid { grid-template-columns: 1fr; } }
+
+    .who-card {
+      background: var(--cream);
+      border: 1px solid var(--navy-08);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      transition: all 0.4s var(--ease-out);
+    }
+    .who-card:hover {
+      border-color: transparent;
+      background: linear-gradient(var(--cream), var(--cream)) padding-box,
+                  linear-gradient(135deg, var(--orange), var(--orange-light)) border-box;
+      box-shadow: 0 16px 40px rgba(213, 105, 58, 0.1);
+      transform: translateY(-4px);
+    }
+    .who-card h3 {
+      font-family: var(--heading);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .who-card p {
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.65;
+    }
+    .who-icon {
+      width: 48px; height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--orange-06), rgba(213,105,58,0.10));
+      border: 1px solid rgba(213,105,58,0.08);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      color: var(--orange);
+    }
+
+    /* ---------- Packages ---------- */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .pkg-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+
+    .pkg-card {
+      background: var(--white);
+      border: 1px solid var(--navy-08);
+      border-radius: var(--radius-card);
+      padding: 36px 30px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.4s var(--ease-out);
+    }
+    .pkg-card:hover {
+      box-shadow: 0 24px 56px rgba(0,0,117,0.10);
+      transform: translateY(-4px);
+    }
+
+    .pkg-card.featured {
+      border: 2px solid transparent;
+      background: linear-gradient(var(--white), var(--white)) padding-box,
+                  linear-gradient(135deg, var(--orange), var(--orange-light)) border-box;
+      box-shadow: 0 24px 64px rgba(213, 105, 58, 0.12);
+    }
+    .pkg-card.featured:hover {
+      box-shadow: 0 32px 72px rgba(213, 105, 58, 0.18);
+    }
+    .pkg-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange);
+      color: #fff;
+      font-family: var(--heading);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pkg-name {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .pkg-tagline {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 24px;
+      line-height: 1.5;
+      min-height: 46px;
+    }
+    .pkg-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .pkg-amount {
+      font-family: var(--heading);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .pkg-currency {
+      font-family: var(--heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .pkg-meta {
+      font-size: 13px;
+      color: var(--navy-40);
+      margin-bottom: 28px;
+    }
+    .pkg-features {
+      list-style: none;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .pkg-features li {
+      padding: 9px 0 9px 24px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.5;
+      border-bottom: 1px solid var(--navy-04);
+    }
+    .pkg-features li:last-child { border-bottom: 0; }
+    .pkg-features li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0; top: 9px;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .pkg-features li strong { font-weight: 700; }
+    .pkg-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .pkg-guarantee {
+      text-align: center;
+      font-size: 14px;
+      color: var(--navy-40);
+      margin-top: 36px;
+    }
+    .pkg-guarantee strong { color: var(--navy); }
+
+    /* ---------- Process ---------- */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .process-grid { grid-template-columns: 1fr; } }
+
+    .process-step {
+      position: relative;
+    }
+    .process-step::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 3px;
+      background: var(--orange);
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+    .step-label {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+    .step-week {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy-40);
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+    .process-step h3 {
+      font-family: var(--heading);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .process-step p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--navy-60);
+    }
+
+    /* ---------- Inaction ---------- */
+    .inaction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .inaction-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    .inaction-list {
+      list-style: none;
+      margin-top: 28px;
+    }
+    .inaction-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 16px;
+      line-height: 1.6;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: rgba(255,255,255,0.85);
+    }
+    .inaction-list li:last-child { border-bottom: 0; }
+    .inaction-list .arrow {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .impact-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-card);
+      padding: 32px;
+    }
+    .impact-card h3 {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--orange);
+      margin-bottom: 28px;
+    }
+    .gauge-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .gauge-row:last-child { margin-bottom: 0; }
+    .gauge-label {
+      width: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      flex-shrink: 0;
+    }
+    .gauge-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .gauge-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 100%);
+      border-radius: 100px;
+      transition: none;
+    }
+    .gauge-fill.animate {
+      transition: width 1.4s var(--ease-out);
+    }
+    .gauge-value {
+      width: 68px;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .impact-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    /* ---------- Testimonial ---------- */
+    .testimonial-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-wrap blockquote {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--navy);
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .testimonial-wrap blockquote::before {
+      content: "\201C";
+      display: block;
+      font-family: var(--heading);
+      font-size: 72px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 0.5;
+      margin-bottom: 16px;
+    }
+    .testimonial-wrap cite {
+      font-style: normal;
+      font-size: 14px;
+      color: var(--navy-40);
+    }
+    .testimonial-wrap cite strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 32px;
+      border: 4px solid var(--white);
+      box-shadow: 0 8px 32px rgba(0,0,117,0.08);
+    }
+
+    /* ---------- Tech strip ---------- */
+    .tech-strip {
+      padding: 56px 0;
+      text-align: center;
+    }
+    .tech-label {
+      font-family: var(--heading);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--navy-40);
+      margin-bottom: 24px;
+    }
+    .tech-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .tech-logos img {
+      height: 42px;
+      width: auto;
+      opacity: 0.5;
+      filter: grayscale(100%);
+      transition: all 0.4s var(--ease-out);
+    }
+    .tech-logos img:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+
+    /* ---------- FAQ ---------- */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    details.faq-item {
+      border-bottom: 1px solid var(--navy-08);
+    }
+    details.faq-item:first-of-type { border-top: 1px solid var(--navy-08); }
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-family: var(--heading);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+      transition: color 0.2s;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: "+";
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--orange);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    details.faq-item[open] summary::after { transform: rotate(45deg); }
+    details.faq-item summary:hover { color: var(--orange); }
+    details.faq-item .faq-body {
+      padding: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--navy-60);
+      max-width: 88%;
+    }
+    details.faq-item .faq-body a { font-weight: 600; }
+
+    /* ---------- Final CTA ---------- */
+    .final-cta {
+      padding: 120px 0;
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 900px; height: 900px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(213, 105, 58, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .final-cta-inner { position: relative; z-index: 1; }
+    .final-cta .section-title {
+      color: #fff;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px;
+    }
+    .final-cta .section-sub {
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .final-cta .cta-row { justify-content: center; }
+    .final-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .final-cta .btn-ghost:hover { background: #fff; color: var(--navy); border-color: #fff; }
+    .final-cta-person {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px 44px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      backdrop-filter: blur(8px);
+    }
+    .final-cta-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid rgba(213, 105, 58, 0.4);
+      box-shadow: 0 0 50px rgba(213, 105, 58, 0.12), 0 8px 32px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+    .final-cta-person-info {
+      text-align: left;
+      line-height: 1.5;
+    }
+    .final-cta-person-name {
+      font-family: var(--heading);
+      font-weight: 700;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .final-cta-person-role {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .final-cta-person-quote {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    .final-cta-person-contact {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+    .final-cta-person-contact a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .final-cta-person-contact a:hover { color: var(--orange-light); }
+    @media (max-width: 600px) {
+      .final-cta-person { flex-direction: column; text-align: center; padding: 28px 24px; }
+      .final-cta-person-info { text-align: center; }
+      .final-cta-photo { width: 120px; height: 120px; }
+    }
+    .final-cta-contact {
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+    }
+    .final-cta-contact strong { color: rgba(255,255,255,0.8); }
+
+    /* Team photo strip */
+    .team-photo-banner {
+      margin-top: 48px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      max-height: 280px;
+    }
+    .team-photo-banner img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    .team-photo-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,117,0.06));
+      pointer-events: none;
+    }
+    .team-faces {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      align-items: center;
+    }
+    .team-faces-stack {
+      display: flex;
+      align-items: center;
+    }
+    .team-faces-stack img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,117,0.10);
+      margin-left: -12px;
+      position: relative;
+      transition: transform 0.3s var(--ease-spring), z-index 0s;
+    }
+    .team-faces-stack img:first-child { margin-left: 0; }
+    .team-faces-stack img:hover { transform: scale(1.18) translateY(-2px); z-index: 10; }
+    .team-faces-label {
+      font-size: 13px;
+      color: var(--navy-40);
+      margin-left: 16px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--navy-08);
+      padding: 36px 0;
+      font-size: 13px;
+      color: var(--navy-40);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { color: var(--navy-60); font-weight: 600; font-size: 13px; }
+    .footer-links a:hover { color: var(--orange); }
+
+    /* ---------- Animations ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-left.in { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-scale.in { opacity: 1; transform: scale(1); }
+
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+
+    /* Floating badge animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .hero-badge { animation: float 4s ease-in-out infinite; }
+
+    /* Gradient shimmer on featured card badge */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .pkg-badge {
+      background: linear-gradient(90deg, var(--orange) 0%, var(--orange-light) 40%, var(--orange) 80%);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    /* Counter animation for stat numbers */
+    .stat-num, .hero-proof-num {
+      transition: opacity 0.6s var(--ease-out);
+    }
+
+    /* Process step bar grow */
+    .process-step::before {
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s var(--ease-out);
+    }
+    .process-step.in::before { transform: scaleX(1); }
+
+    /* Smooth section padding for dark sections */
+    section.dark {
+      position: relative;
+    }
+    section.dark::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(213,105,58,0.3), transparent);
+    }
+    section.dark::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(213,105,58,0.3), transparent);
+    }
+
+    /* Mesh gradient on dark sections for depth */
+    .dark-mesh {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%, rgba(0,0,150,0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(213,105,58,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Testimonial photo subtle pulse */
+    .testimonial-photo {
+      transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+    }
+    .testimonial-photo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 16px 48px rgba(0,0,117,0.12);
+    }
+
+    /* ========== Fit-check section ========== */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+    }
+    @media (max-width: 768px) { .fit-grid { grid-template-columns: 1fr; } }
+    .fit-col {
+      padding: 40px;
+      border-radius: var(--radius-card);
+      position: relative;
+    }
+    .fit-col.fit-yes {
+      background: linear-gradient(135deg, rgba(34,140,84,0.04) 0%, rgba(34,140,84,0.01) 100%);
+      border: 1px solid rgba(34,140,84,0.15);
+    }
+    .fit-col.fit-no {
+      background: linear-gradient(135deg, rgba(180,60,40,0.04) 0%, rgba(180,60,40,0.01) 100%);
+      border: 1px solid rgba(180,60,40,0.12);
+    }
+    .fit-icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .fit-yes .fit-icon { background: rgba(34,140,84,0.10); color: #228c54; }
+    .fit-no .fit-icon { background: rgba(180,60,40,0.10); color: #b43c28; }
+    .fit-heading {
+      font-family: var(--heading);
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .fit-yes .fit-heading { color: #228c54; }
+    .fit-no .fit-heading { color: #b43c28; }
+    .fit-list {
+      list-style: none;
+      padding: 0;
+    }
+    .fit-list li {
+      padding: 10px 0 10px 32px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--navy-90);
+      border-bottom: 1px solid rgba(0,0,117,0.04);
+    }
+    .fit-list li:last-child { border-bottom: none; }
+    .fit-list li::before {
+      position: absolute;
+      left: 0; top: 12px;
+      font-size: 16px;
+    }
+    .fit-yes .fit-list li::before { content: "✓"; color: #228c54; font-weight: 700; }
+    .fit-no .fit-list li::before { content: "—"; color: #b43c28; font-weight: 700; }
+    .fit-alt {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: rgba(0,0,117,0.03);
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--navy-60);
+    }
+    .fit-alt a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .fit-alt a:hover { color: var(--orange-hover); }
+
+    /* ========== V3: High-end depth, motion & schematics ========== */
+
+    /* Ensure containers sit above decorative layers */
+    section > .container, .hero > .container { position: relative; z-index: 2; }
+
+    /* ---------- Circuit / schematic background ---------- */
+    .circuit-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .circuit-bg svg { width: 100%; height: 100%; }
+    .circuit-path {
+      stroke-dasharray: 6 8;
+      animation: circuit-flow 18s linear infinite;
+    }
+    @keyframes circuit-flow {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -280; }
+    }
+
+    /* ---------- Floating gradient orbs (depth) ---------- */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      will-change: transform;
+      animation: orb-drift var(--orb-dur, 16s) ease-in-out infinite alternate;
+    }
+    @keyframes orb-drift {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(var(--ox1, 30px), var(--oy1, -25px)) scale(1.1); }
+      66% { transform: translate(var(--ox2, -20px), var(--oy2, 15px)) scale(0.92); }
+      100% { transform: translate(var(--ox3, 45px), var(--oy3, -40px)) scale(1.08); }
+    }
+
+    /* ---------- Floating AI nodes (dark sections) ---------- */
+    .float-nodes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .float-node {
+      position: absolute;
+      width: var(--n-size, 6px);
+      height: var(--n-size, 6px);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--orange) 0%, transparent 70%);
+      opacity: var(--n-op, 0.3);
+      animation: node-wander var(--n-dur, 10s) ease-in-out infinite;
+      animation-delay: var(--n-delay, 0s);
+    }
+    @keyframes node-wander {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(var(--nx1, 20px), var(--ny1, -40px)); }
+      50% { transform: translate(var(--nx2, -15px), var(--ny2, -70px)); }
+      75% { transform: translate(var(--nx3, 30px), var(--ny3, -25px)); }
+    }
+
+    /* Connection lines between floating nodes */
+    .node-line {
+      position: absolute;
+      height: 1px;
+      transform-origin: left center;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent 0%, rgba(213,105,58,0.12) 30%, rgba(213,105,58,0.12) 70%, transparent 100%);
+      animation: line-pulse 5s ease-in-out infinite;
+      animation-delay: var(--line-delay, 0s);
+    }
+    @keyframes line-pulse {
+      0%, 100% { opacity: 0.08; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ---------- Schematic dot grid ---------- */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(circle, var(--navy-08) 0.8px, transparent 0.8px);
+      background-size: 52px 52px;
+      animation: grid-drift 40s linear infinite;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 70%);
+      opacity: 0.5;
+    }
+    .dot-grid-dark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.12) 0.8px, transparent 0.8px);
+      background-size: 52px 52px;
+      animation: grid-drift 40s linear infinite;
+      mask-image: radial-gradient(ellipse 65% 55% at 55% 45%, black 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 65% 55% at 55% 45%, black 10%, transparent 70%);
+      opacity: 0.35;
+    }
+    @keyframes grid-drift {
+      0% { background-position: 0 0; }
+      100% { background-position: 52px 52px; }
+    }
+
+    /* ---------- 3D reveal (cards tilt into view) ---------- */
+    .reveal-3d {
+      opacity: 0;
+      transform: perspective(800px) rotateX(6deg) translateY(30px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-3d.in {
+      opacity: 1;
+      transform: perspective(800px) rotateX(0) translateY(0);
+    }
+
+    /* ---------- Blur reveal (content sharpens into focus) ---------- */
+    .reveal-blur {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(16px) scale(0.97);
+      transition: opacity 1.1s var(--ease-out), filter 1.1s var(--ease-out), transform 1.1s var(--ease-out);
+    }
+    .reveal-blur.in {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0) scale(1);
+    }
+
+    /* ---------- Parallax layers ---------- */
+    [data-speed] { will-change: transform; }
+
+    /* ---------- Depth hover on cards ---------- */
+    .depth-hover {
+      transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+    }
+    .depth-hover:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 28px 56px rgba(0,0,117,0.10), 0 8px 16px rgba(0,0,117,0.05);
+    }
+
+    /* ---------- Process connecting line ---------- */
+    .process-grid { position: relative; }
+    .process-grid::after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--orange), var(--orange-light), var(--orange), transparent);
+      opacity: 0.12;
+    }
+    @media (max-width: 600px) { .process-grid::after { display: none; } }
+
+    /* ---------- Featured pkg glow ---------- */
+    .pkg-card.featured {
+      animation: card-glow 4s ease-in-out infinite;
+    }
+    @keyframes card-glow {
+      0%, 100% { box-shadow: 0 24px 64px rgba(213,105,58,0.12); }
+      50% { box-shadow: 0 24px 80px rgba(213,105,58,0.22), 0 0 60px rgba(213,105,58,0.05); }
+    }
+
+    /* ---------- Section head parallax float ---------- */
+    .section-head { will-change: transform; }
+
+    /* ---------- Hero orb positions ---------- */
+    .hero .orb-1 {
+      width: 400px; height: 400px;
+      top: -80px; right: -100px;
+      background: rgba(213,105,58,0.08);
+      --orb-dur: 18s;
+      --ox1: 40px; --oy1: -30px; --ox2: -25px; --oy2: 20px; --ox3: 50px; --oy3: -45px;
+    }
+    .hero .orb-2 {
+      width: 300px; height: 300px;
+      bottom: -60px; left: 20%;
+      background: rgba(0,0,117,0.06);
+      --orb-dur: 22s;
+      --ox1: -30px; --oy1: 20px; --ox2: 25px; --oy2: -15px; --ox3: -40px; --oy3: 35px;
+    }
+
+    /* ---------- Stagger extensions ---------- */
+    .stagger-5 { transition-delay: 0.40s; }
+    .stagger-6 { transition-delay: 0.48s; }
+
+    /* ========== V5: FULL MOTION OVERHAUL ========== */
+
+    /* Fixed particle canvas */
+    #particle-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Fixed parallax shape field */
+    #parallax-field {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .pf-shape {
+      position: absolute;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    /* Ensure interactive elements above global overlays */
+    .notice, header, footer { position: relative; z-index: 10; }
+    header { z-index: 100; }
+    section, .logos-section, .tech-strip, .section-fade { position: relative; z-index: 2; }
+
+    /* --- Rotating crosses (+) --- */
+    .pf-cross {
+      position: relative;
+      width: var(--cr-size, 14px);
+      height: var(--cr-size, 14px);
+      animation: cross-rotate var(--cr-dur, 14s) linear infinite;
+    }
+    .pf-cross::before, .pf-cross::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 1px;
+    }
+    .pf-cross::before { width: 100%; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+    .pf-cross::after { width: 1.5px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+    @keyframes cross-rotate { to { transform: rotate(360deg); } }
+
+    /* --- Drifting hollow diamonds --- */
+    .pf-diamond {
+      position: relative;
+      width: var(--dm-size, 14px);
+      height: var(--dm-size, 14px);
+      border: 1px solid currentColor;
+      transform: rotate(45deg);
+      animation: diamond-drift var(--dm-dur, 18s) ease-in-out infinite alternate;
+    }
+    @keyframes diamond-drift {
+      0%   { transform: rotate(45deg) translate(0, 0) scale(1); opacity: var(--dm-op, 0.08); }
+      33%  { transform: rotate(45deg) translate(var(--dmx, 12px), var(--dmy, -18px)) scale(1.15); opacity: calc(var(--dm-op, 0.08) * 1.6); }
+      66%  { transform: rotate(45deg) translate(calc(var(--dmx, 12px) * -0.6), calc(var(--dmy, -18px) * -0.5)) scale(0.9); }
+      100% { transform: rotate(45deg) translate(calc(var(--dmx, 12px) * 0.3), calc(var(--dmy, -18px) * 1.2)) scale(1.05); opacity: var(--dm-op, 0.08); }
+    }
+
+    /* --- Expanding pulse rings --- */
+    .pf-pulse-wrap { position: relative; }
+    .pf-pulse-ring {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      animation: pulse-expand var(--pl-dur, 6s) ease-out infinite;
+      animation-delay: var(--pl-delay, 0s);
+    }
+    @keyframes pulse-expand {
+      0%   { transform: scale(0.3); opacity: 0.22; }
+      60%  { opacity: 0.08; }
+      100% { transform: scale(3.5); opacity: 0; }
+    }
+
+    /* --- Animated gradient mesh overlay per section --- */
+    .gradient-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      animation: mesh-shift 20s ease-in-out infinite alternate;
+      background:
+        radial-gradient(ellipse 40% 50% at var(--m1x, 20%) var(--m1y, 30%), rgba(0,0,117,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 35% 45% at var(--m2x, 75%) var(--m2y, 65%), rgba(213,105,58,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at var(--m3x, 50%) var(--m3y, 80%), rgba(0,0,117,0.04) 0%, transparent 60%);
+    }
+    @keyframes mesh-shift {
+      0%   { background-position: 0 0, 0 0, 0 0; filter: hue-rotate(0deg); }
+      50%  { background-position: 5% -3%, -4% 5%, 3% -2%; }
+      100% { background-position: -3% 5%, 6% -4%, -5% 3%; filter: hue-rotate(8deg); }
+    }
+
+    /* --- Scroll-driven horizontal movers --- */
+    .scroll-h {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+      opacity: 0.06;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--navy-40), var(--orange-12), transparent);
+    }
+
+    /* --- Scroll-driven scale/rotation (JS sets --scroll-t 0-1) --- */
+    .scroll-rotate {
+      will-change: transform;
+      transform: rotate(calc(var(--scroll-t, 0) * 15deg));
+    }
+    .scroll-scale {
+      will-change: transform;
+      transform: scale(calc(0.9 + var(--scroll-t, 0) * 0.2));
+    }
+
+    /* --- Animated travelling border on cards --- */
+    .glow-border {
+      position: relative;
+      overflow: hidden;
+    }
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 70%, rgba(213,105,58,0.18) 78%, rgba(0,0,117,0.12) 85%, transparent 92%);
+      animation: border-spin 5s linear infinite;
+      z-index: -1;
+    }
+    .glow-border::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background: inherit;
+      border-radius: inherit;
+      z-index: -1;
+    }
+    @keyframes border-spin { to { transform: rotate(360deg); } }
+
+    /* --- Number counter reveal --- */
+    .count-up {
+      display: inline-block;
+      transition: opacity 0.4s;
+    }
+
+    /* --- Staggered word reveal --- */
+    .word-reveal .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px) rotateX(40deg);
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+    .word-reveal.in .word {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+
+    /* --- Mouse glow follower --- */
+    #mouse-glow {
+      position: fixed;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(213,105,58,0.06) 0%, rgba(0,0,117,0.03) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: left 0.3s ease-out, top 0.3s ease-out, opacity 0.4s;
+      opacity: 0;
+    }
+    #mouse-glow.active { opacity: 1; }
+
+    /* --- Scroll progress bar --- */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light), var(--navy));
+      z-index: 200;
+      width: 0%;
+      transition: none;
+    }
+
+    /* --- Floating binary text decoration --- */
+    .binary-strip {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      animation: binary-scroll var(--bin-dur, 30s) linear infinite;
+    }
+    @keyframes binary-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* --- Section horizontal lines that animate on scroll --- */
+    .h-line {
+      position: absolute;
+      height: 1px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.8s, width 1.2s var(--ease-out);
+      width: 0;
+    }
+    .h-line.in {
+      opacity: 1;
+      width: var(--line-w, 60%);
+    }
+
+    /* --- More dramatic reveals --- */
+    .reveal-rotate {
+      opacity: 0;
+      transform: perspective(1000px) rotateY(12deg) translateX(-40px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-rotate.in { opacity: 1; transform: perspective(1000px) rotateY(0) translateX(0); }
+    .reveal-rotate-r {
+      opacity: 0;
+      transform: perspective(1000px) rotateY(-12deg) translateX(40px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-rotate-r.in { opacity: 1; transform: perspective(1000px) rotateY(0) translateX(0); }
+
+    /* --- Glitch text effect on hover --- */
+    .glitch-hover:hover {
+      animation: glitch-text 0.3s steps(2) 1;
+    }
+    @keyframes glitch-text {
+      0% { transform: translate(0); }
+      25% { transform: translate(-2px, 1px); }
+      50% { transform: translate(2px, -1px); }
+      75% { transform: translate(-1px, -1px); }
+      100% { transform: translate(0); }
+    }
+
+    /* --- Animated separator between sections --- */
+    .animated-sep {
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      z-index: 3;
+      overflow: hidden;
+    }
+    .animated-sep::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      animation: sep-travel 8s ease-in-out infinite;
+    }
+    @keyframes sep-travel {
+      0%   { transform: translateX(-100%); }
+      50%  { transform: translateX(250%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- V5: Mouse glow + scroll progress -->
+  <div id="mouse-glow" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Global particle canvas + parallax shapes -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div id="parallax-field" aria-hidden="true">
+    <!-- Layer 1: Close — dots (fastest, 3× more visible) -->
+    <div class="pf-shape" data-speed="0.30" style="left:4%;top:14%;width:6px;height:6px;border-radius:50%;background:rgba(0,0,117,0.16)"></div>
+    <div class="pf-shape" data-speed="0.28" style="left:91%;top:38%;width:5px;height:5px;border-radius:50%;background:rgba(213,105,58,0.18)"></div>
+    <div class="pf-shape" data-speed="0.32" style="left:48%;top:22%;width:6px;height:6px;border-radius:50%;background:rgba(0,0,117,0.14)"></div>
+    <div class="pf-shape" data-speed="0.26" style="left:76%;top:68%;width:5px;height:5px;border-radius:50%;background:rgba(213,105,58,0.16)"></div>
+    <div class="pf-shape" data-speed="0.34" style="left:18%;top:78%;width:6px;height:6px;border-radius:50%;background:rgba(0,0,117,0.13)"></div>
+    <div class="pf-shape" data-speed="0.27" style="left:62%;top:52%;width:4px;height:4px;border-radius:50%;background:rgba(213,105,58,0.20)"></div>
+    <div class="pf-shape" data-speed="0.31" style="left:35%;top:42%;width:5px;height:5px;border-radius:50%;background:rgba(0,0,117,0.15)"></div>
+    <div class="pf-shape" data-speed="0.29" style="left:82%;top:88%;width:4px;height:4px;border-radius:50%;background:rgba(213,105,58,0.17)"></div>
+    <!-- Layer 2: Rings (bigger, more visible) -->
+    <div class="pf-shape" data-speed="0.14" style="left:87%;top:10%;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(0,0,117,0.12)"></div>
+    <div class="pf-shape" data-speed="0.17" style="left:7%;top:34%;width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(213,105,58,0.13)"></div>
+    <div class="pf-shape" data-speed="0.12" style="left:70%;top:50%;width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,117,0.10)"></div>
+    <div class="pf-shape" data-speed="0.16" style="left:22%;top:62%;width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(0,0,117,0.11)"></div>
+    <div class="pf-shape" data-speed="0.13" style="left:52%;top:85%;width:20px;height:20px;border-radius:50%;border:1px solid rgba(213,105,58,0.12)"></div>
+    <div class="pf-shape" data-speed="0.15" style="left:40%;top:6%;width:24px;height:24px;border-radius:50%;border:1px solid rgba(0,0,117,0.09)"></div>
+    <!-- Layer 3: Dashes (longer, bolder) -->
+    <div class="pf-shape" data-speed="0.07" style="left:32%;top:16%;width:32px;height:2px;border-radius:100px;background:rgba(0,0,117,0.10);transform:rotate(-20deg)"></div>
+    <div class="pf-shape" data-speed="0.06" style="left:68%;top:42%;width:26px;height:2px;border-radius:100px;background:rgba(213,105,58,0.11);transform:rotate(28deg)"></div>
+    <div class="pf-shape" data-speed="0.08" style="left:14%;top:55%;width:36px;height:2px;border-radius:100px;background:rgba(0,0,117,0.09);transform:rotate(-40deg)"></div>
+    <div class="pf-shape" data-speed="0.05" style="left:82%;top:75%;width:28px;height:2px;border-radius:100px;background:rgba(213,105,58,0.10);transform:rotate(12deg)"></div>
+    <div class="pf-shape" data-speed="0.09" style="left:55%;top:92%;width:30px;height:2px;border-radius:100px;background:rgba(0,0,117,0.08);transform:rotate(-32deg)"></div>
+    <div class="pf-shape" data-speed="0.065" style="left:92%;top:48%;width:24px;height:2px;border-radius:100px;background:rgba(213,105,58,0.09);transform:rotate(55deg)"></div>
+    <!-- Layer 4: Blurred orbs (bigger, more visible) -->
+    <div class="pf-shape" data-speed="0.025" style="left:8%;top:18%;width:180px;height:180px;border-radius:50%;background:rgba(0,0,117,0.045);filter:blur(50px)"></div>
+    <div class="pf-shape" data-speed="0.03" style="left:72%;top:42%;width:150px;height:150px;border-radius:50%;background:rgba(213,105,58,0.05);filter:blur(45px)"></div>
+    <div class="pf-shape" data-speed="0.02" style="left:38%;top:68%;width:200px;height:200px;border-radius:50%;background:rgba(0,0,117,0.04);filter:blur(55px)"></div>
+    <div class="pf-shape" data-speed="0.035" style="left:58%;top:8%;width:120px;height:120px;border-radius:50%;background:rgba(213,105,58,0.045);filter:blur(40px)"></div>
+    <div class="pf-shape" data-speed="0.028" style="left:88%;top:72%;width:160px;height:160px;border-radius:50%;background:rgba(0,0,117,0.035);filter:blur(50px)"></div>
+    <!-- Layer A: Rotating crosses (bigger, bolder) -->
+    <div class="pf-shape" data-speed="0.20" style="left:12%;top:8%"><div class="pf-cross" style="--cr-size:18px;--cr-dur:18s;color:rgba(0,0,117,0.14)"></div></div>
+    <div class="pf-shape" data-speed="0.22" style="left:85%;top:26%"><div class="pf-cross" style="--cr-size:14px;--cr-dur:14s;color:rgba(213,105,58,0.16)"></div></div>
+    <div class="pf-shape" data-speed="0.18" style="left:42%;top:44%"><div class="pf-cross" style="--cr-size:16px;--cr-dur:22s;color:rgba(0,0,117,0.12)"></div></div>
+    <div class="pf-shape" data-speed="0.24" style="left:68%;top:62%"><div class="pf-cross" style="--cr-size:12px;--cr-dur:16s;color:rgba(213,105,58,0.14)"></div></div>
+    <div class="pf-shape" data-speed="0.19" style="left:28%;top:80%"><div class="pf-cross" style="--cr-size:15px;--cr-dur:20s;color:rgba(0,0,117,0.13)"></div></div>
+    <div class="pf-shape" data-speed="0.21" style="left:94%;top:72%"><div class="pf-cross" style="--cr-size:11px;--cr-dur:12s;color:rgba(213,105,58,0.15)"></div></div>
+    <div class="pf-shape" data-speed="0.17" style="left:56%;top:92%"><div class="pf-cross" style="--cr-size:17px;--cr-dur:24s;color:rgba(0,0,117,0.11)"></div></div>
+    <div class="pf-shape" data-speed="0.23" style="left:3%;top:50%"><div class="pf-cross" style="--cr-size:13px;--cr-dur:15s;color:rgba(213,105,58,0.13)"></div></div>
+    <!-- Layer B: Drifting diamonds (bigger, bolder) -->
+    <div class="pf-shape" data-speed="0.10" style="left:16%;top:20%"><div class="pf-diamond" style="--dm-size:20px;--dm-dur:20s;--dm-op:0.12;--dmx:22px;--dmy:-28px;color:rgba(0,0,117,0.12)"></div></div>
+    <div class="pf-shape" data-speed="0.11" style="left:78%;top:14%"><div class="pf-diamond" style="--dm-size:16px;--dm-dur:16s;--dm-op:0.13;--dmx:-18px;--dmy:20px;color:rgba(213,105,58,0.13)"></div></div>
+    <div class="pf-shape" data-speed="0.09" style="left:50%;top:36%"><div class="pf-diamond" style="--dm-size:22px;--dm-dur:24s;--dm-op:0.10;--dmx:24px;--dmy:-30px;color:rgba(0,0,117,0.10)"></div></div>
+    <div class="pf-shape" data-speed="0.12" style="left:6%;top:56%"><div class="pf-diamond" style="--dm-size:14px;--dm-dur:18s;--dm-op:0.14;--dmx:-14px;--dmy:18px;color:rgba(213,105,58,0.14)"></div></div>
+    <div class="pf-shape" data-speed="0.08" style="left:36%;top:72%"><div class="pf-diamond" style="--dm-size:18px;--dm-dur:22s;--dm-op:0.11;--dmx:20px;--dmy:-24px;color:rgba(0,0,117,0.11)"></div></div>
+    <div class="pf-shape" data-speed="0.13" style="left:90%;top:58%"><div class="pf-diamond" style="--dm-size:13px;--dm-dur:15s;--dm-op:0.12;--dmx:-16px;--dmy:22px;color:rgba(213,105,58,0.12)"></div></div>
+    <div class="pf-shape" data-speed="0.095" style="left:60%;top:4%"><div class="pf-diamond" style="--dm-size:15px;--dm-dur:19s;--dm-op:0.10;--dmx:14px;--dmy:-16px;color:rgba(0,0,117,0.10)"></div></div>
+    <!-- Layer C: Pulse rings (bigger, brighter) -->
+    <div class="pf-shape" data-speed="0.04" style="left:20%;top:12%"><div class="pf-pulse-wrap" style="width:50px;height:50px;color:rgba(0,0,117,0.14)"><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:1.7s"></div><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:3.3s"></div></div></div>
+    <div class="pf-shape" data-speed="0.035" style="left:74%;top:30%"><div class="pf-pulse-wrap" style="width:42px;height:42px;color:rgba(213,105,58,0.12)"><div class="pf-pulse-ring" style="--pl-dur:6s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:6s;--pl-delay:2s"></div><div class="pf-pulse-ring" style="--pl-dur:6s;--pl-delay:4s"></div></div></div>
+    <div class="pf-shape" data-speed="0.045" style="left:46%;top:54%"><div class="pf-pulse-wrap" style="width:46px;height:46px;color:rgba(0,0,117,0.11)"><div class="pf-pulse-ring" style="--pl-dur:5.5s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:5.5s;--pl-delay:1.8s"></div><div class="pf-pulse-ring" style="--pl-dur:5.5s;--pl-delay:3.6s"></div></div></div>
+    <div class="pf-shape" data-speed="0.03" style="left:8%;top:76%"><div class="pf-pulse-wrap" style="width:55px;height:55px;color:rgba(213,105,58,0.10)"><div class="pf-pulse-ring" style="--pl-dur:7s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:7s;--pl-delay:2.3s"></div><div class="pf-pulse-ring" style="--pl-dur:7s;--pl-delay:4.6s"></div></div></div>
+    <div class="pf-shape" data-speed="0.05" style="left:62%;top:88%"><div class="pf-pulse-wrap" style="width:38px;height:38px;color:rgba(0,0,117,0.13)"><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:1.7s"></div><div class="pf-pulse-ring" style="--pl-dur:5s;--pl-delay:3.3s"></div></div></div>
+    <div class="pf-shape" data-speed="0.042" style="left:88%;top:8%"><div class="pf-pulse-wrap" style="width:48px;height:48px;color:rgba(213,105,58,0.11)"><div class="pf-pulse-ring" style="--pl-dur:6.5s;--pl-delay:0s"></div><div class="pf-pulse-ring" style="--pl-dur:6.5s;--pl-delay:2.2s"></div><div class="pf-pulse-ring" style="--pl-dur:6.5s;--pl-delay:4.3s"></div></div></div>
+  </div>
+
+  <!-- Notice -->
+  <div class="notice">
+    <strong>Beperkte capaciteit Q3 2026</strong> — we starten nog 6 trajecten op voor het einde van het kwartaal. <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A">Reserveer je intake &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="https://www.plainsight.pro" class="logo-link">
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/55340e2d-fadd-40f3-a4fb-d761738a83ff/plainsight+nieuw.png?format=500w" alt="Plainsight" />
+      </a>
+      <nav>
+        <a href="https://www.plainsight.pro/scans">Scans</a>
+        <a href="https://www.plainsight.pro/strategy">Strategy</a>
+        <a href="https://www.plainsight.pro/projects">Projects</a>
+        <a href="https://www.plainsight.pro/cases">Cases</a>
+        <a href="#packages" class="btn btn-primary">Bekijk pakketten</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <!-- Circuit schematic background -->
+    <div class="circuit-bg" data-speed="-0.06" aria-hidden="true">
+      <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <g stroke="rgba(0,0,117,0.04)" stroke-width="0.5">
+          <line x1="0" y1="140" x2="1200" y2="140"/><line x1="0" y1="350" x2="1200" y2="350"/>
+          <line x1="0" y1="560" x2="1200" y2="560"/><line x1="200" y1="0" x2="200" y2="700"/>
+          <line x1="480" y1="0" x2="480" y2="700"/><line x1="760" y1="0" x2="760" y2="700"/>
+          <line x1="1000" y1="0" x2="1000" y2="700"/>
+        </g>
+        <g fill="none" stroke="rgba(0,0,117,0.07)" stroke-width="1">
+          <path class="circuit-path" d="M0 200 Q100 200 200 140 L480 140 Q560 140 600 250 Q640 350 760 350"/>
+          <path class="circuit-path" d="M760 350 Q860 350 900 300 Q940 250 1000 250 L1200 250"/>
+          <path class="circuit-path" d="M480 140 L480 350 Q480 420 560 460 L760 460"/>
+          <path class="circuit-path" d="M0 500 L200 500 Q280 500 320 440 Q360 380 480 350"/>
+          <path class="circuit-path" d="M760 350 L760 560 Q760 620 860 620 L1200 620"/>
+        </g>
+        <g>
+          <circle cx="200" cy="140" r="2.5" fill="rgba(213,105,58,0.25)"><animate attributeName="r" values="2;4;2" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="480" cy="140" r="2.5" fill="rgba(213,105,58,0.25)"><animate attributeName="r" values="2;4;2" dur="3.5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.5s" begin="0.5s" repeatCount="indefinite"/></circle>
+          <circle cx="760" cy="350" r="3.5" fill="rgba(213,105,58,0.3)"><animate attributeName="r" values="3;5;3" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.25;0.55;0.25" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+          <circle cx="480" cy="350" r="2.5" fill="rgba(213,105,58,0.2)"><animate attributeName="r" values="2;4;2" dur="4s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.15;0.4;0.15" dur="4s" begin="1.5s" repeatCount="indefinite"/></circle>
+          <circle cx="1000" cy="250" r="2.5" fill="rgba(213,105,58,0.2)"><animate attributeName="r" values="2;3.5;2" dur="3.5s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.15;0.4;0.15" dur="3.5s" begin="2s" repeatCount="indefinite"/></circle>
+          <circle cx="200" cy="500" r="2" fill="rgba(213,105,58,0.18)"><animate attributeName="r" values="2;3.5;2" dur="3s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.12;0.3;0.12" dur="3s" begin="0.8s" repeatCount="indefinite"/></circle>
+          <circle cx="760" cy="560" r="2" fill="rgba(213,105,58,0.18)"><animate attributeName="r" values="2;3.5;2" dur="4s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.12;0.35;0.12" dur="4s" begin="1.2s" repeatCount="indefinite"/></circle>
+        </g>
+        <circle r="2" fill="rgba(213,105,58,0.55)"><animateMotion dur="5s" repeatCount="indefinite" path="M0,200 Q100,200 200,140 L480,140 Q560,140 600,250 Q640,350 760,350"/></circle>
+        <circle r="1.5" fill="rgba(213,105,58,0.45)"><animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" path="M760,350 Q860,350 900,300 Q940,250 1000,250 L1200,250"/></circle>
+        <circle r="1.5" fill="rgba(213,105,58,0.4)"><animateMotion dur="6s" begin="3s" repeatCount="indefinite" path="M480,140 L480,350 Q480,420 560,460 L760,460"/></circle>
+      </svg>
+    </div>
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">AI Starter Pakketten</span>
+          <h1 class="hero-title">
+            Werkende AI<br>in <span class="accent">4 weken</span>.
+          </h1>
+          <p class="hero-sub">
+            Je hebt genoeg PowerPoints gezien. Wij bouwen op jouw data één concrete AI-toepassing die <strong>vanaf dag één tijd of geld bespaart</strong> — vaste prijs, in productie.
+          </p>
+          <div class="cta-row">
+            <a href="#packages" class="btn btn-primary">Bekijk de pakketten</a>
+            <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A" class="btn btn-ghost">Plan een intake</a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="hero-proof-item">
+              <div class="hero-proof-num">100+</div>
+              <div class="hero-proof-label">data- & AI-projecten</div>
+            </div>
+            <div class="hero-proof-item">
+              <div class="hero-proof-num">30+</div>
+              <div class="hero-proof-label">engineers in-house</div>
+            </div>
+            <div class="hero-proof-item">
+              <div class="hero-proof-num">50+</div>
+              <div class="hero-proof-label">klanten in Benelux</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image reveal-scale">
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/2644bb7a-069b-4a77-b018-b34c74559c54/Plainsight_WebRes+86.jpg?format=1000w" alt="Plainsight team aan het werk" />
+          <div class="hero-badge">
+            <div class="hero-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D5693A" stroke-width="2.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            </div>
+            <div class="hero-badge-text">
+              Microsoft Solutions Partner
+              <span>Data & AI · Azure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOGOS ============ -->
+  <div class="logos-section">
+    <div class="container">
+      <div class="logos-label">Vertrouwd door teams van</div>
+      <div class="logos-row">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/VDAB_logo.svg" alt="VDAB" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/31037f30-640e-4ff1-8233-8d2003a35c13/torfs.png?format=300w" alt="Torfs" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/VRT_logo.svg" alt="VRT" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Ahold_Delhaize.svg" alt="Ahold Delhaize" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Keytrade_Bank_logo.svg" alt="Keytrade Bank" />
+        <img src="https://upload.wikimedia.org/wikipedia/de/b/b2/DS_Smith_logo.svg" alt="DS Smith" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section-fade cream-to-white"></div>
+
+  <!-- ============ PAIN: Herkenbaar? ============ -->
+  <section class="alt">
+    <div class="dot-grid" data-speed="0.03" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">Herkenbaar?</span>
+        <h2 class="section-title">Iedereen praat over AI.<br>Niet alles levert op.</h2>
+        <p class="section-sub">
+          De zinnen die we elke week horen aan de keukentafel van directieleden.
+        </p>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal-3d depth-hover">
+          <p class="quote">We hebben een AI-strategie laten schrijven. Mooi document. Drie maanden later is er nog niets in productie.</p>
+          <div class="source">CFO, productiebedrijf · 80 FTE</div>
+        </div>
+        <div class="pain-card reveal-3d depth-hover stagger-1">
+          <p class="quote">Onze mensen gebruiken ChatGPT in het wild. Niemand weet wat erin gaat, of het GDPR-proof is.</p>
+          <div class="source">IT Manager, dienstenbedrijf · 200 FTE</div>
+        </div>
+        <div class="pain-card reveal-3d depth-hover stagger-2">
+          <p class="quote">We hebben offertes gevraagd. Vier weken later: nog steeds geen prijs, alleen een 'discovery phase' van &euro;15k.</p>
+          <div class="source">Zaakvoerder, KMO · 35 FTE</div>
+        </div>
+        <div class="pain-card reveal-3d depth-hover stagger-3">
+          <p class="quote">Onze data zit in vijf systemen. Elke leverancier zegt 'we beginnen met een POC' en dan wordt het stil.</p>
+          <div class="source">Operations director, retail · 150 FTE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade white-to-navy"></div>
+
+  <!-- ============ WAAROM NU (FOMO) ============ -->
+  <section class="dark">
+    <div class="dark-mesh"></div>
+    <div class="dot-grid-dark" data-speed="0.04" aria-hidden="true"></div>
+    <div class="float-nodes" aria-hidden="true">
+      <div class="float-node" style="left:8%;top:18%;--n-size:8px;--n-op:0.4;--n-dur:11s;--nx1:25px;--ny1:-45px;--nx2:-18px;--ny2:-75px;--nx3:35px;--ny3:-20px"></div>
+      <div class="float-node" style="left:28%;top:72%;--n-size:5px;--n-op:0.22;--n-dur:15s;--n-delay:1.5s;--nx1:-22px;--ny1:-35px;--nx2:20px;--ny2:-60px;--nx3:-12px;--ny3:-18px"></div>
+      <div class="float-node" style="left:62%;top:22%;--n-size:6px;--n-op:0.32;--n-dur:13s;--n-delay:3s;--nx1:30px;--ny1:-50px;--nx2:-25px;--ny2:-30px;--nx3:18px;--ny3:-65px"></div>
+      <div class="float-node" style="left:88%;top:58%;--n-size:7px;--n-op:0.28;--n-dur:10s;--n-delay:0.5s;--nx1:-15px;--ny1:-42px;--nx2:22px;--ny2:-68px;--nx3:-28px;--ny3:-22px"></div>
+      <div class="float-node" style="left:45%;top:42%;--n-size:4px;--n-op:0.18;--n-dur:17s;--n-delay:4s;--nx1:18px;--ny1:-28px;--nx2:-12px;--ny2:-52px;--nx3:15px;--ny3:-15px"></div>
+      <div class="node-line" style="left:10%;top:30%;width:180px;transform:rotate(-15deg);--line-delay:0s"></div>
+      <div class="node-line" style="left:55%;top:50%;width:220px;transform:rotate(8deg);--line-delay:1.5s"></div>
+      <div class="node-line" style="left:75%;top:25%;width:160px;transform:rotate(-25deg);--line-delay:3s"></div>
+    </div>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Waarom nu</span>
+        <h2 class="section-title">Het venster om voorop te lopen sluit dit jaar.</h2>
+        <p class="section-sub">
+          De bedrijven die in 2026 hun eerste use case live krijgen, lopen straks twee jaar voor op wie nog een workshop boekt.
+        </p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item reveal-scale">
+          <div class="stat-num">78%</div>
+          <div class="stat-label">van organisaties wereldwijd gebruikt AI in minstens één bedrijfsfunctie</div>
+        </div>
+        <div class="stat-item reveal-scale stagger-1">
+          <div class="stat-num">&euro;280K</div>
+          <div class="stat-label">verloren omzet per jaar bij een KMO die vasthoudt aan handmatige processen</div>
+        </div>
+        <div class="stat-item reveal-scale stagger-2">
+          <div class="stat-num">11&times;</div>
+          <div class="stat-label">meer kans op succes voor AI-projecten met een sterke datagrondslag</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px; font-size: 12px; color: rgba(255,255,255,0.3);">
+        Bronnen: McKinsey State of AI 2024 · BCG Build for the Future · Forrester productiviteitsonderzoek
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade navy-to-cream"></div>
+
+  <!-- ============ COMPARE ============ -->
+  <section>
+    <div class="dot-grid" data-speed="0.03"></div>
+    <div class="gradient-mesh" style="--m1x:15%;--m1y:25%;--m2x:80%;--m2y:70%;--m3x:45%;--m3y:85%"></div>
+    <div class="binary-strip" style="top:12%;left:0;color:rgba(0,0,117,0.04);--bin-dur:35s">01001010 11010011 00110101 10101110 01110010 10011001 01001010 11010011 00110101 10101110 01110010 10011001</div>
+    <div class="animated-sep"></div>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">Anders aanpakken</span>
+        <h2 class="section-title">Een adviesbureau levert slides.<br>Wij leveren een werkende AI.</h2>
+      </div>
+
+      <div class="compare reveal-scale">
+        <div class="compare-col them reveal-left">
+          <div class="compare-label">De gewone aanpak</div>
+          <div class="compare-heading">Strategie &middot; Workshops &middot; Hoop</div>
+          <ul class="compare-list">
+            <li>3 dagen workshop met post-its en canvassen</li>
+            <li>Roadmap van 40 pagina's</li>
+            <li>"AI Readiness Score" zonder werkend resultaat</li>
+            <li>Aparte offerte voor de echte bouw, weken later</li>
+            <li>Geen ervaring met jouw datalandschap</li>
+            <li>Generieke prompts en GPT-wrappers</li>
+          </ul>
+        </div>
+        <div class="compare-col us reveal-right">
+          <div class="compare-label">De Plainsight-aanpak</div>
+          <div class="compare-heading">Bouwen &middot; Leveren &middot; Meten</div>
+          <ul class="compare-list">
+            <li>Eén dag scoping, daarna meteen aan de slag</li>
+            <li>Werkende AI, geïntegreerd met jouw systemen</li>
+            <li>Vaste prijs vooraf — geen verrassingen</li>
+            <li>Eén team van scoping tot productie</li>
+            <li>100+ dataprojecten · 30+ data- &amp; AI-engineers</li>
+            <li>30% sneller dan klassiek consultancytraject</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade cream-to-white"></div>
+
+  <!-- ============ VOOR WIE ============ -->
+  <section class="alt">
+    <div class="gradient-mesh" style="--m1x:60%;--m1y:30%;--m2x:20%;--m2y:60%;--m3x:75%;--m3y:85%"></div>
+    <div class="animated-sep"></div>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Voor wie</span>
+        <h2 class="section-title">Voor KMO's die voorbij<br>de showcase willen.</h2>
+      </div>
+
+      <div class="who-grid">
+        <div class="who-card reveal-3d depth-hover">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3>De pragmatische zaakvoerder</h3>
+          <p>25 tot 500 medewerkers. Je weet dat AI iets gaat veranderen en je wil <strong>één concreet bewijs in eigen huis</strong> in plaats van nog een conferentie.</p>
+        </div>
+        <div class="who-card reveal-3d depth-hover stagger-1">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+          </div>
+          <h3>De ops- of finance-leider</h3>
+          <p>Je weet exact welke <strong>repetitieve handelingen</strong> tijd vreten — offerteopvolging, factuurmatching, rapportage — en je wil weten wat AI realistisch oplost.</p>
+        </div>
+        <div class="who-card reveal-3d depth-hover stagger-2">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4"/><path d="M7.2 17.5l3.3-5"/><path d="M16.8 17.5l-3.3-5"/><circle cx="12" cy="12.5" r="1.5" fill="currentColor" opacity="0.15"/></svg>
+          </div>
+          <h3>De data- of IT-manager</h3>
+          <p>Jouw data zit verspreid over Excel, ERP, CRM en mailboxes. Je hebt een partner nodig die <strong>ook het fundament eronder</strong> rechtzet.</p>
+        </div>
+      </div>
+
+      <div class="team-faces reveal">
+        <div class="team-faces-stack">
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/08f20423-5d9a-4252-918b-cb1cfc08c5f0/Untitled+design+%2821%29.png?format=300w" alt="Bo" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1773243191211-B5PBDJI0DP7DVY5MARTY/blog+post+pictures+%2831%29.png?format=300w" alt="Gert-Jan" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1769419352683-6NH9LDIMZAFF7NCY8XMY/15.png?format=300w" alt="Jesse" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1765183895536-W0LYR8DP6HU0SKN9772F/blog+post+pictures+%2811%29.png?format=300w" alt="Arne" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1771232758471-SOBQ5H1QBR4LIPOU9M0F/blog+post+pictures+%2824%29.png?format=300w" alt="Evy" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1764073198796-L0DJX8QQTZFRIVYLYYII/blog+post+pictures+%289%29.png?format=300w" alt="Roy" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1764057563604-70WIMBKL2MVQQL3ANM9G/blog+post+pictures+%285%29.png?format=300w" alt="Watse" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1768211565270-HTPXRRMGG8LOHXROVBWF/blog+post+pictures+%2818%29.png?format=300w" alt="Lotte" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1767000046319-NR2IKL9HXSQXCC960B5W/blog+post+pictures+%2816%29.png?format=300w" alt="Philipp" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1756471184717-PAUJJPT8H1SWP3IHMMBW/joran+profile.png?format=300w" alt="Joran" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1777966022385-DDIL235M066Q2HSJK9ED/blog+post+pictures+%2839%29.png?format=300w" alt="Andreas" />
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1776243551415-COK87Y8DNRGMXK84Y6GR/blog+post+pictures+%2838%29.png?format=300w" alt="Arno" />
+        </div>
+        <span class="team-faces-label">30+ engineers klaar om te bouwen</span>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <p style="color: var(--navy-40); font-size: 14px; max-width: 540px; margin: 0 auto;">
+          <strong style="color: var(--navy);">Niet voor jou?</strong> Begin met onze gratis <a href="https://www.plainsight.pro/scans">AI-scan</a>. Eerlijk advies, geen verkooppraatje.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade white-to-cream"></div>
+
+  <!-- ============ PACKAGES ============ -->
+  <section id="packages">
+    <div class="dot-grid" data-speed="0.04"></div>
+    <div class="gradient-mesh" style="--m1x:70%;--m1y:20%;--m2x:25%;--m2y:75%;--m3x:55%;--m3y:50%"></div>
+    <div class="binary-strip" style="bottom:8%;left:0;color:rgba(0,0,117,0.035);--bin-dur:28s">10110100 01011010 11001101 00101011 10010110 01101001 10110100 01011010 11001101 00101011 10010110 01101001</div>
+    <div class="animated-sep"></div>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">De pakketten</span>
+        <h2 class="section-title">Drie startpunten.<br>Vaste prijs. Vast resultaat.</h2>
+        <p class="section-sub">
+          Na het traject heb je iets dat werkt — niet een document dat ergens werkt.
+        </p>
+      </div>
+
+      <div class="pkg-grid">
+        <!-- Sprint -->
+        <div class="pkg-card reveal-3d">
+          <div class="pkg-name">AI Sprint</div>
+          <p class="pkg-tagline">Weten wat AI concreet kan doen — zonder risico.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-currency">&euro;</span>
+            <span class="pkg-amount">4.950</span>
+          </div>
+          <div class="pkg-meta">excl. btw &middot; 2 weken doorlooptijd</div>
+          <ul class="pkg-features">
+            <li>1 dag scoping-workshop ter plaatse</li>
+            <li>Top 3 use cases met business case</li>
+            <li><strong>1 werkend AI-prototype</strong> op jouw data</li>
+            <li>Demo-sessie met je team</li>
+            <li>Roadmap voor 6 maanden</li>
+            <li>30 dagen support na oplevering</li>
+          </ul>
+          <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A" class="btn btn-ghost pkg-cta">Plan intake &rarr;</a>
+        </div>
+
+        <!-- Pilot -->
+        <div class="pkg-card featured reveal-3d stagger-1">
+          <div class="pkg-badge">Meest gekozen</div>
+          <div class="pkg-name">AI Pilot</div>
+          <p class="pkg-tagline">Eén AI-toepassing volledig in productie, geïntegreerd.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-currency">&euro;</span>
+            <span class="pkg-amount">12.500</span>
+          </div>
+          <div class="pkg-meta">excl. btw &middot; 4 weken doorlooptijd</div>
+          <ul class="pkg-features">
+            <li>Volledige scoping &amp; data-assessment</li>
+            <li>Integratie met jouw bestaande systemen</li>
+            <li><strong>1 productieklare AI-toepassing</strong></li>
+            <li>Security &amp; GDPR-review inbegrepen</li>
+            <li>Opleiding voor 2 key users</li>
+            <li>ROI-meting na 30 én 90 dagen</li>
+            <li>60 dagen support na oplevering</li>
+          </ul>
+          <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A" class="btn btn-primary pkg-cta">Start de Pilot &rarr;</a>
+        </div>
+
+        <!-- Production -->
+        <div class="pkg-card reveal-3d stagger-2">
+          <div class="pkg-name">AI Production</div>
+          <p class="pkg-tagline">Meerdere use cases, eigen AI-platform, schaalbaar.</p>
+          <div class="pkg-price-row">
+            <span class="pkg-amount" style="font-size: 30px;">Op maat</span>
+          </div>
+          <div class="pkg-meta">vanaf &euro;35.000 &middot; 8&ndash;12 weken</div>
+          <ul class="pkg-features">
+            <li>Multi use case-implementatie</li>
+            <li>AI-platform op Azure / Fabric / Databricks</li>
+            <li>Governance, monitoring &amp; observability</li>
+            <li><strong>3+ AI-toepassingen in productie</strong></li>
+            <li>Train-the-trainer voor je hele team</li>
+            <li>Quarterly business review &amp; roadmap</li>
+            <li>Optioneel: managed support</li>
+          </ul>
+          <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A" class="btn btn-ghost pkg-cta">Praat met een expert &rarr;</a>
+        </div>
+      </div>
+
+      <p class="pkg-guarantee">
+        <strong>Onze garantie:</strong> haalt het Pilot-pakket binnen 4 weken geen werkende oplossing? Dan betaal je niet voor de eindfase.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-fade cream-to-white"></div>
+
+  <!-- ============ FIT CHECK ============ -->
+  <section>
+    <div class="dot-grid" data-speed="0.03"></div>
+    <div class="gradient-mesh" style="--m1x:50%;--m1y:30%;--m2x:20%;--m2y:70%;--m3x:80%;--m3y:55%"></div>
+    <div class="animated-sep"></div>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">Is dit jouw moment?</span>
+        <h2 class="section-title">Eerlijk advies.<br>Want niet elk traject past bij elke situatie.</h2>
+        <p class="section-sub">We winnen liever een klant voor het leven dan een project dat niet matcht. Daarom zijn we transparant over wanneer dit wél en wanneer dit niet de juiste aanpak is.</p>
+      </div>
+
+      <div class="fit-grid">
+        <div class="fit-col fit-yes reveal-left depth-hover">
+          <div class="fit-icon">✓</div>
+          <div class="fit-heading">Dit traject is voor jou als&hellip;</div>
+          <ul class="fit-list">
+            <li>Je hebt één of meerdere <strong>concrete AI use cases</strong> in gedachten die je wilt valideren met echte data</li>
+            <li>Je wilt <strong>snel aantoonbare waarde</strong> leveren — naar je team, directie of raad van bestuur — met een werkend resultaat, niet met een rapport</li>
+            <li>Het project kan <strong>starten zonder dat de hele organisatie</strong> mee hoeft te bewegen — een afgebakend team, één proces, één dataset</li>
+            <li>Je data zit al in <strong>bestaande systemen</strong> (ERP, CRM, Excel, mailboxen) en is voldoende beschikbaar om mee te werken</li>
+            <li>Je wilt <strong>eerst klein bewijzen, dan schalen</strong> — liever een werkende pilot dan een tweejarige roadmap</li>
+            <li>Er is een <strong>sponsor binnen het MT</strong> die mandaat en budget heeft om vandaag te starten</li>
+            <li>Je zoekt een <strong>partner die meebouwt</strong>, niet een consultant die presenteert en vertrekt</li>
+          </ul>
+        </div>
+
+        <div class="fit-col fit-no reveal-right depth-hover">
+          <div class="fit-icon">✕</div>
+          <div class="fit-heading">Kies een ander pad als&hellip;</div>
+          <ul class="fit-list">
+            <li>Er is <strong>nog geen duidelijk sponsorship</strong> of mandaat voor AI — de organisatie weet nog niet of ze hierin wil investeren</li>
+            <li>Er moeten eerst <strong>stakeholders overtuigd</strong> worden van het nut van AI voordat er gebouwd kan worden</li>
+            <li>Het initiatief brengt een <strong>grote verandercomponent</strong> mee die processen, rollen of structuren in de organisatie raakt</li>
+            <li>Meer dan <strong>20 medewerkers worden direct geïmpacteerd</strong> — dat vraagt om change management, niet om een sprint</li>
+            <li>Je wilt een <strong>AI operating model</strong> definiëren: governance, risicokaders, een organisatiebrede AI-strategie</li>
+            <li>De prioriteit ligt bij een <strong>AI-rijpheidsassessment</strong> of het in kaart brengen van kansen vóór er iets gebouwd wordt</li>
+            <li>Er zijn <strong>geen afgebakende use cases</strong> — het gesprek gaat nog over "wat zou AI voor ons kunnen betekenen?"</li>
+          </ul>
+          <div class="fit-alt">
+            <strong>Wat wij dan aanraden:</strong> start met een gestructureerde AI-strategie die draagvlak creëert, prioriteiten scherp stelt en je organisatie klaarstoomt. <a href="https://www.plainsight.pro/blogs/shadow-ai-is-not-the-problem">Lees onze aanpak voor organisatiebrede AI-adoptie &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade cream-to-white"></div>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="alt">
+    <div class="dot-grid" data-speed="0.03"></div>
+    <div class="gradient-mesh" style="--m1x:30%;--m1y:40%;--m2x:65%;--m2y:20%;--m3x:80%;--m3y:70%"></div>
+    <div class="animated-sep"></div>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">Hoe het loopt</span>
+        <h2 class="section-title">Vier weken. Vier mijlpalen.<br>Niets wazigs ertussen.</h2>
+      </div>
+
+      <div class="team-photo-banner reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/6fd7cedf-e4d1-4996-9c9b-5cf0069106d3/Plainsight_WebRes+9+%281%29.jpg?format=1500w" alt="Plainsight team aan het werk" loading="lazy" />
+      </div>
+
+      <div class="process-grid" style="margin-top: 48px;">
+        <div class="process-step reveal">
+          <div class="step-label">Stap 01</div>
+          <div class="step-week">Week 1 &middot; Scopen</div>
+          <h3>Use case scherpstellen</h3>
+          <p>Eén dag op locatie. We bekijken processen, data, mensen. Eén gekozen use case met een meetbare belofte.</p>
+        </div>
+        <div class="process-step reveal stagger-1">
+          <div class="step-label">Stap 02</div>
+          <div class="step-week">Week 2 &middot; Aansluiten</div>
+          <h3>Data &amp; systemen koppelen</h3>
+          <p>ERP, CRM, SharePoint, mail — we sluiten je bronnen aan. GDPR en security zijn van dag één ingebouwd.</p>
+        </div>
+        <div class="process-step reveal stagger-2">
+          <div class="step-label">Stap 03</div>
+          <div class="step-week">Week 3 &middot; Bouwen</div>
+          <h3>Iteratief opbouwen</h3>
+          <p>Korte feedbacklussen. Twee tussentijdse reviews. Geen black box: jij ziet wat er gebeurt en stuurt mee.</p>
+        </div>
+        <div class="process-step reveal stagger-3">
+          <div class="step-label">Stap 04</div>
+          <div class="step-week">Week 4 &middot; Live</div>
+          <h3>Lanceren &amp; meten</h3>
+          <p>Productiezet, opleiding key users, impact-dashboard. Na 30 en 90 dagen kijken we samen wat het oplevert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade white-to-navy"></div>
+
+  <!-- ============ COST OF INACTION ============ -->
+  <section class="dark">
+    <div class="dark-mesh"></div>
+    <div class="dot-grid-dark" data-speed="0.03" aria-hidden="true"></div>
+    <div class="float-nodes" aria-hidden="true">
+      <div class="float-node" style="left:5%;top:25%;--n-size:7px;--n-op:0.35;--n-dur:12s;--nx1:20px;--ny1:-50px;--nx2:-25px;--ny2:-80px;--nx3:30px;--ny3:-30px"></div>
+      <div class="float-node" style="left:92%;top:15%;--n-size:5px;--n-op:0.2;--n-dur:14s;--n-delay:2s;--nx1:-18px;--ny1:-30px;--nx2:15px;--ny2:-55px;--nx3:-25px;--ny3:-15px"></div>
+      <div class="float-node" style="left:50%;top:80%;--n-size:6px;--n-op:0.28;--n-dur:11s;--n-delay:1s;--nx1:28px;--ny1:-45px;--nx2:-20px;--ny2:-35px;--nx3:22px;--ny3:-60px"></div>
+      <div class="float-node" style="left:75%;top:45%;--n-size:9px;--n-op:0.3;--n-dur:16s;--n-delay:3.5s;--nx1:-22px;--ny1:-55px;--nx2:25px;--ny2:-40px;--nx3:-18px;--ny3:-70px"></div>
+      <div class="node-line" style="left:8%;top:45%;width:200px;transform:rotate(12deg);--line-delay:0.5s"></div>
+      <div class="node-line" style="left:60%;top:30%;width:250px;transform:rotate(-18deg);--line-delay:2s"></div>
+      <div class="node-line" style="left:40%;top:70%;width:180px;transform:rotate(5deg);--line-delay:3.5s"></div>
+    </div>
+    <div class="container">
+      <div class="inaction-grid">
+        <div class="reveal-left">
+          <span class="eyebrow">De prijs van wachten</span>
+          <h2 class="section-title" style="font-size: clamp(28px, 3.6vw, 42px);">"We wachten nog even" is de duurste strategie van 2026.</h2>
+          <p style="font-size: 16px; color: rgba(255,255,255,0.65); margin-top: 12px;">
+            Elke maand dat je niet beweegt:
+          </p>
+          <ul class="inaction-list">
+            <li><span class="arrow">&rarr;</span> <span>Je concurrent automatiseert offerteopvolging en wint deals 3 dagen sneller.</span></li>
+            <li><span class="arrow">&rarr;</span> <span>Je teams gebruiken publieke AI-tools zonder controle. Bedrijfsdata sijpelt weg.</span></li>
+            <li><span class="arrow">&rarr;</span> <span>Je beste mensen verbranden uren aan werk dat een AI-agent in seconden doet.</span></li>
+            <li><span class="arrow">&rarr;</span> <span>Technische schuld stapelt op — elke "tijdelijke" oplossing wordt structureel.</span></li>
+          </ul>
+        </div>
+
+        <div class="impact-card reveal-right">
+          <h3>Gemeten impact na 3 maanden</h3>
+          <div class="gauge-row">
+            <div class="gauge-label">Tijdbesparing</div>
+            <div class="gauge-track"><div class="gauge-fill" data-width="72%" style="width: 0"></div></div>
+            <div class="gauge-value">15&ndash;35u/w</div>
+          </div>
+          <div class="gauge-row">
+            <div class="gauge-label">Doorlooptijd</div>
+            <div class="gauge-track"><div class="gauge-fill" data-width="60%" style="width: 0"></div></div>
+            <div class="gauge-value">&minus;40%</div>
+          </div>
+          <div class="gauge-row">
+            <div class="gauge-label">Foutmarge</div>
+            <div class="gauge-track"><div class="gauge-fill" data-width="80%" style="width: 0"></div></div>
+            <div class="gauge-value">&minus;65%</div>
+          </div>
+          <div class="gauge-row">
+            <div class="gauge-label">Adoptie</div>
+            <div class="gauge-track"><div class="gauge-fill" data-width="85%" style="width: 0"></div></div>
+            <div class="gauge-value">85%</div>
+          </div>
+          <p class="impact-note">
+            Gemiddelden gemeten over Pilot-trajecten Plainsight 2024&ndash;2025. Resultaten variëren per use case.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade navy-to-cream"></div>
+
+  <!-- ============ TESTIMONIAL ============ -->
+  <section>
+    <div class="container">
+      <div class="testimonial-wrap reveal-scale">
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/1e4a76cf-44f8-4ce3-8e9c-617fa2bfbc98/20241003_173100.jpg?format=500w" alt="Plainsight klant" class="testimonial-photo" />
+        <blockquote>
+          We hadden al twee andere bureaus zien stranden in pilots. Plainsight scopte één duidelijke use case, en vier weken later draaide er iets dat onze planners écht gebruiken. Gewoon werk dat werkt.
+        </blockquote>
+        <cite>
+          Industrieel productiebedrijf &middot; 80 FTE &middot; België
+        </cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECH STRIP ============ -->
+  <div class="tech-strip" style="background: var(--white); border-top: 1px solid var(--navy-08); border-bottom: 1px solid var(--navy-08);">
+    <div class="container">
+      <div class="tech-label">We bouwen op platformen die je al kent</div>
+      <div class="tech-logos">
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/ed90eb9f-1ad5-4add-94e4-c80bd048380f/azure.png?format=300w" alt="Microsoft Azure" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/7d922797-8537-4f45-a440-a0f7a6e55c1d/Microsoft%2BFabric%2BLogo.png?format=300w" alt="Microsoft Fabric" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/b0ce9cd3-e17a-4355-83c6-97e8a5a9c293/databricks-logo.png?format=300w" alt="Databricks" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/002037f5-4ea4-4e4d-9009-560498e7c72e/openai-icon-2021x2048-4rpe5x7n.png?format=300w" alt="OpenAI" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/09a87324-945b-4f45-88a3-c4be3f3384de/dbt-seeklogo.png?format=300w" alt="dbt" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/5464ccaf-08a4-4de3-b11d-b6c64369bc7a/New_Power_BI_Logo.svg.png?format=300w" alt="Power BI" />
+        <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/7cc432c9-6a98-4e48-a562-de79e06a0da1/Azure-ai-logo.png?format=300w" alt="Azure AI Foundry" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <div class="container">
+      <div class="section-head center reveal-blur">
+        <span class="eyebrow">Veelgestelde vragen</span>
+        <h2 class="section-title">Vragen die we elke week krijgen.</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Onze data is een rommeltje. Kunnen we starten?</summary>
+          <div class="faq-body">Ja — dat is het normale startpunt. In week 1 brengen we in kaart wat je nodig hebt voor de gekozen use case. Vaak blijkt dat 80% van de "datachaos" niet relevant is. Voor de rest hebben we een team data engineers dat het fundament rechtzet zonder dat je een jaar hoeft te wachten.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wat bedoelen jullie met "werkende AI-toepassing"?</summary>
+          <div class="faq-body">Een tool die je medewerkers de maandag na oplevering openen en gebruiken. Voorbeelden: een AI-assistent die offertevragen voorbereidt, een documentextractor die facturen leest en boekt, een Q&amp;A-bot op je interne procedures. Geen demo — productie.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hoeveel tijd kost dit aan onze kant?</summary>
+          <div class="faq-body">Ongeveer <strong>2 dagen totaal</strong> van één business owner over 4 weken: één scopingdag, twee korte reviews, één opleidingsessie. Wij trekken het project.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Hoe zit het met GDPR en dataveiligheid?</summary>
+          <div class="faq-body">We werken standaard binnen jouw eigen Azure/Microsoft 365-tenant. Geen data verlaat je omgeving. We leveren altijd een DPIA-light document mee. Voor sectorspecifieke kaders (NIS2, DORA, ISO 27001) hebben we ervaring met klanten in financiën en zorg.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wat als we na de Pilot meer use cases willen?</summary>
+          <div class="faq-body">Dat gebeurt in 7 op de 10 trajecten. Ofwel een nieuwe Pilot voor de volgende use case, ofwel overschakelen naar AI Production met een schaalbaar platform. Of een combinatie: wij bouwen het platform, jullie de use cases — wij coachen.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wij zijn een KMO van 30 mensen. Is dit niet te groot?</summary>
+          <div class="faq-body">De AI Sprint is precies daarvoor — &euro;4.950 voor twee weken met een werkend prototype. Wil je eerst aftasten? Doe gratis onze <a href="https://www.plainsight.pro/scans">AI-scan</a>.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wie staat er aan onze kant tijdens het traject?</summary>
+          <div class="faq-body">Eén lead consultant + één AI-/data-engineer. Geen junior army, geen wisselende casts. Je belt één nummer, krijgt één gezicht in elke meeting.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-fade cream-to-navy"></div>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" id="contact">
+    <div class="dot-grid-dark" data-speed="0.05" aria-hidden="true"></div>
+    <div class="float-nodes" aria-hidden="true">
+      <div class="float-node" style="left:12%;top:30%;--n-size:8px;--n-op:0.35;--n-dur:13s;--nx1:30px;--ny1:-40px;--nx2:-20px;--ny2:-65px;--nx3:25px;--ny3:-20px"></div>
+      <div class="float-node" style="left:85%;top:20%;--n-size:6px;--n-op:0.25;--n-dur:11s;--n-delay:1s;--nx1:-25px;--ny1:-35px;--nx2:18px;--ny2:-55px;--nx3:-15px;--ny3:-15px"></div>
+      <div class="float-node" style="left:40%;top:75%;--n-size:5px;--n-op:0.2;--n-dur:15s;--n-delay:2.5s;--nx1:22px;--ny1:-45px;--nx2:-15px;--ny2:-30px;--nx3:20px;--ny3:-55px"></div>
+      <div class="node-line" style="left:15%;top:55%;width:200px;transform:rotate(-10deg);--line-delay:1s"></div>
+      <div class="node-line" style="left:65%;top:35%;width:180px;transform:rotate(15deg);--line-delay:2.5s"></div>
+    </div>
+    <div class="container">
+      <div class="final-cta-inner">
+        <span class="eyebrow" style="color: var(--orange);">Laatste stap</span>
+        <h2 class="section-title">Klaar om voorbij de hype<br>te bouwen?</h2>
+        <p class="section-sub">
+          30 minuten met een Plainsight-expert. Geen pitch, geen verkooptrechter. Wij stellen vragen, jij bepaalt of het klikt.
+        </p>
+        <div class="cta-row">
+          <a href="mailto:info@plainsight.pro?subject=Werkende%20AI%20in%204%20weken&body=Beste%2C%0A%0AGraag%20wens%20ik%20een%20verkennende%20meeting%20in%20te%20plannen%20voor%20het%20traject%20%22Werkende%20AI%20in%204%20weken%22.%0AIs%20het%20mogelijk%20om%20hiervoor%20een%20kennismaking%20in%20te%20plannen%3F%0A%0AMvg%2C%0A" class="btn btn-primary">Plan een intake</a>
+          <a href="https://www.plainsight.pro/scans" class="btn btn-ghost">Doe eerst de gratis AI-scan</a>
+        </div>
+        <div class="final-cta-person">
+          <img src="https://images.squarespace-cdn.com/content/v1/682733bdf3d5305ddb2e53d1/08f20423-5d9a-4252-918b-cb1cfc08c5f0/Untitled+design+%2821%29.png?format=750w" alt="Bo Vande Sompele — CEO Plainsight" class="final-cta-photo" />
+          <div class="final-cta-person-info">
+            <div class="final-cta-person-name">Bo Vande Sompele</div>
+            <div class="final-cta-person-role">CEO &amp; Oprichter — Plainsight</div>
+            <div class="final-cta-person-quote">"Liever een eerlijk gesprek dan een pitch. Plan een call en we bekijken samen of dit traject past."</div>
+            <div class="final-cta-person-contact">
+              <a href="tel:+32498119587">+32 (0) 498 11 95 87</a> &nbsp;&middot;&nbsp; <a href="mailto:info@plainsight.pro">info@plainsight.pro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>&copy; 2026 Plainsight &middot; Mechelen, België</div>
+        <div class="footer-links">
+          <a href="https://www.plainsight.pro">Hoofdsite</a>
+          <a href="https://www.plainsight.pro/cases">Cases</a>
+          <a href="https://www.plainsight.pro/blogs">Knowledge Center</a>
+          <a href="https://www.plainsight.pro/privacy-policy">Privacy</a>
+          <a href="https://www.plainsight.pro/cookie-policy">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== V5: Full motion engine ===== */
+
+    /* --- Global state --- */
+    var G = { sy: 0, mx: -9999, my: -9999, vh: window.innerHeight, vw: window.innerWidth };
+    window.addEventListener('scroll', function() { G.sy = window.pageYOffset; }, { passive: true });
+    window.addEventListener('mousemove', function(e) { G.mx = e.clientX; G.my = e.clientY; });
+    window.addEventListener('resize', function() { G.vh = window.innerHeight; G.vw = window.innerWidth; });
+
+    /* ===== 1. Canvas Particle Network (boosted) ===== */
+    (function() {
+      var cvs = document.getElementById('particle-canvas');
+      if (!cvs) return;
+      var ctx = cvs.getContext('2d');
+      var W, H, particles = [];
+      var COUNT = 50, DIST = 170, SPD = 0.35, lastF = 0, FMS = 40;
+
+      function resize() { W = cvs.width = window.innerWidth; H = cvs.height = window.innerHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+
+      for (var i = 0; i < COUNT; i++) {
+        var isO = Math.random() < 0.3;
+        particles.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * SPD, vy: (Math.random() - 0.5) * SPD,
+          r: Math.random() * 2.2 + 0.8,
+          col: isO ? '213,105,58' : '0,0,117',
+          a: Math.random() * 0.35 + 0.1,
+          depth: Math.random() * 0.6 + 0.4
+        });
+      }
+
+      function draw(now) {
+        if (now - lastF < FMS) { requestAnimationFrame(draw); return; }
+        lastF = now;
+        ctx.clearRect(0, 0, W, H);
+        var sOff = G.sy * 0.025;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -20) p.x = W + 20; if (p.x > W + 20) p.x = -20;
+          if (p.y < -20) p.y = H + 20; if (p.y > H + 20) p.y = -20;
+          var dy = p.y + sOff * p.depth;
+          var dx2 = G.mx - p.x, dy2 = G.my - dy, md = Math.sqrt(dx2*dx2 + dy2*dy2);
+          if (md < 250) { var push = (250 - md) * 0.0005; p.vx -= dx2 * push; p.vy -= dy2 * push; }
+          var spd = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
+          if (spd > SPD * 1.8) { p.vx *= 0.97; p.vy *= 0.97; }
+          ctx.beginPath(); ctx.arc(p.x, dy, p.r, 0, 6.284);
+          ctx.fillStyle = 'rgba(' + p.col + ',' + p.a + ')'; ctx.fill();
+          for (var j = i + 1; j < particles.length; j++) {
+            var q = particles[j], qy = q.y + sOff * q.depth;
+            var ddx = p.x - q.x, ddy = dy - qy, dist = Math.sqrt(ddx*ddx + ddy*ddy);
+            if (dist < DIST) {
+              var alpha = (1 - dist / DIST) * 0.12;
+              ctx.beginPath(); ctx.moveTo(p.x, dy); ctx.lineTo(q.x, qy);
+              ctx.strokeStyle = 'rgba(0,0,117,' + alpha.toFixed(3) + ')';
+              ctx.lineWidth = 0.7; ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    })();
+
+    /* ===== 2. Parallax field (fixed shapes) ===== */
+    (function() {
+      var shapes = document.querySelectorAll('#parallax-field .pf-shape');
+      if (!shapes.length) return;
+      var data = [];
+      shapes.forEach(function(el) {
+        data.push({ el: el, speed: parseFloat(el.dataset.speed) || 0.1 });
+      });
+      var tick = false;
+      function update() {
+        var sy = G.sy;
+        for (var i = 0; i < data.length; i++) {
+          data[i].el.style.transform = 'translateY(' + (sy * data[i].speed).toFixed(1) + 'px)';
+        }
+        tick = false;
+      }
+      window.addEventListener('scroll', function() { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+      update();
+    })();
+
+    /* ===== 3. Reveal animations + word reveals ===== */
+    (function() {
+      var revealSel = '.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-3d,.reveal-blur,.reveal-rotate,.reveal-rotate-r,.h-line';
+      var revealEls = document.querySelectorAll(revealSel);
+      var processEls = document.querySelectorAll('.process-step');
+
+      document.querySelectorAll('.section-title').forEach(function(el) {
+        if (el.closest('.hero')) return;
+        var html = el.innerHTML;
+        var words = html.split(/(\s+|<br\s*\/?>)/);
+        el.innerHTML = words.map(function(w, i) {
+          if (/^\s+$/.test(w)) return w;
+          if (/<br/i.test(w)) return w;
+          return '<span class="word" style="transition-delay:' + (i * 0.06) + 's">' + w + '</span>';
+        }).join(' ');
+        el.classList.add('word-reveal');
+      });
+
+      if ('IntersectionObserver' in window) {
+        var revIO = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); revIO.unobserve(e.target); }
+          });
+        }, { threshold: 0.08 });
+        revealEls.forEach(function(el) { revIO.observe(el); });
+        processEls.forEach(function(el) { revIO.observe(el); });
+        document.querySelectorAll('.word-reveal').forEach(function(el) { revIO.observe(el); });
+
+        var gaugeIO = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.querySelectorAll('.gauge-fill').forEach(function(bar, i) {
+                setTimeout(function() { bar.classList.add('animate'); var w = bar.dataset.width; if (w) bar.style.width = w; }, i * 180);
+              });
+              gaugeIO.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        var ic = document.querySelector('.impact-card');
+        if (ic) gaugeIO.observe(ic);
+      } else {
+        revealEls.forEach(function(el) { el.classList.add('in'); });
+        processEls.forEach(function(el) { el.classList.add('in'); });
+      }
+      setTimeout(function() {
+        document.querySelectorAll(revealSel.split(',').map(function(s) { return s.trim() + ':not(.in)'; }).join(',') + ',.process-step:not(.in),.word-reveal:not(.in)')
+          .forEach(function(el) { el.classList.add('in'); });
+      }, 5000);
+    })();
+
+    /* ===== 4. Counter animation for stat numbers ===== */
+    (function() {
+      function animateCount(el) {
+        var text = el.textContent.trim();
+        var match = text.match(/^([€]?\s*)(\d+(?:[.,]\d+)?)\s*([KkMm%×x+]*)/);
+        if (!match) return;
+        var prefix = match[1], target = parseFloat(match[2].replace(',', '.')), suffix = match[3];
+        var isDecimal = match[2].indexOf('.') > -1 || match[2].indexOf(',') > -1;
+        var start = 0, dur = 2000, startT = null;
+        function step(ts) {
+          if (!startT) startT = ts;
+          var progress = Math.min((ts - startT) / dur, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          var val = start + (target - start) * ease;
+          el.textContent = prefix + (isDecimal ? val.toFixed(0) : Math.round(val).toLocaleString('nl-BE')) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if ('IntersectionObserver' in window) {
+        var cIO = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { animateCount(e.target); cIO.unobserve(e.target); }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-num, .hero-proof-num').forEach(function(el) { cIO.observe(el); });
+      }
+    })();
+
+    /* ===== 5. Section-level parallax ===== */
+    (function() {
+      var els = document.querySelectorAll('section [data-speed], .hero [data-speed]');
+      if (!els.length) return;
+      var raf = null;
+      function tick() {
+        var vh = G.vh;
+        els.forEach(function(el) {
+          if (el.closest('#parallax-field')) return;
+          var speed = parseFloat(el.dataset.speed);
+          var parent = el.closest('section') || el.parentElement;
+          var rect = parent.getBoundingClientRect();
+          var center = rect.top + rect.height * 0.5;
+          var offset = (center - vh * 0.5) * speed * -1;
+          el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+        });
+        raf = null;
+      }
+      window.addEventListener('scroll', function() { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+      tick();
+    })();
+
+    /* ===== 6. Tilt depth on cards ===== */
+    document.querySelectorAll('.depth-hover').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var r = card.getBoundingClientRect();
+        var cx = (e.clientX - r.left) / r.width - 0.5;
+        var cy = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(600px) rotateY(' + (cx * 6).toFixed(1) + 'deg) rotateX(' + (cy * -6).toFixed(1) + 'deg) translateY(-8px) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function() { card.style.transform = ''; });
+    });
+
+    /* ===== 7. Header shrink ===== */
+    (function() {
+      var hdr = document.querySelector('header');
+      var shrunk = false;
+      window.addEventListener('scroll', function() {
+        var s = G.sy > 60;
+        if (s !== shrunk) {
+          hdr.style.boxShadow = s ? '0 4px 24px rgba(0,0,117,0.08)' : '';
+          hdr.style.backdropFilter = s ? 'blur(18px)' : 'blur(12px)';
+          shrunk = s;
+        }
+      }, { passive: true });
+    })();
+
+    /* ===== 8. Mouse glow follower ===== */
+    (function() {
+      var glow = document.getElementById('mouse-glow');
+      if (!glow) return;
+      var active = false;
+      window.addEventListener('mousemove', function(e) {
+        if (!active) { glow.classList.add('active'); active = true; }
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mouseleave', function() {
+        glow.classList.remove('active'); active = false;
+      });
+    })();
+
+    /* ===== 9. Scroll progress bar ===== */
+    (function() {
+      var bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      window.addEventListener('scroll', function() {
+        var max = document.documentElement.scrollHeight - G.vh;
+        bar.style.width = ((G.sy / max) * 100).toFixed(1) + '%';
+      }, { passive: true });
+    })();
+
+    /* ===== 10. Scroll-driven transforms on sections ===== */
+    (function() {
+      var sections = document.querySelectorAll('section > .container');
+      var raf = null;
+      function tick() {
+        var vh = G.vh;
+        sections.forEach(function(cont) {
+          var rect = cont.getBoundingClientRect();
+          var mid = rect.top + rect.height * 0.5;
+          var t = Math.max(0, Math.min(1, 1 - Math.abs(mid - vh * 0.5) / (vh * 0.8)));
+          cont.style.setProperty('--scroll-t', t.toFixed(3));
+        });
+
+        document.querySelectorAll('.pkg-card').forEach(function(card) {
+          var rect = card.getBoundingClientRect();
+          var t = Math.max(0, Math.min(1, 1 - (rect.top / vh)));
+          var shift = (1 - t) * 30;
+          if (rect.top < vh && rect.bottom > 0) {
+            card.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
+          }
+        });
+
+        raf = null;
+      }
+      window.addEventListener('scroll', function() { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+      tick();
+    })();
+
+    /* ===== 11. Smooth section title parallax ===== */
+    (function() {
+      var heads = document.querySelectorAll('.section-head');
+      var raf = null;
+      function tick() {
+        var vh = G.vh;
+        heads.forEach(function(h) {
+          var rect = h.getBoundingClientRect();
+          var center = rect.top + rect.height * 0.5;
+          var offset = (center - vh * 0.5) * -0.06;
+          h.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+        });
+        raf = null;
+      }
+      window.addEventListener('scroll', function() { if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+      tick();
+    })();
+  </script>
+</body>
+</html>
